@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import BillChart from './Components/BillChart';
+import BillDashboard from './Components/BillDashboard';
+import Header from './Components/Header';
+import MonthlyBudget from './Components/MonthlyBudget';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+       <Routes>
+       <Route path="/monthly-graph" element={ <BillChart/>}/>
+       <Route path="/monthly-budget" element={ <MonthlyBudget/>}/>
+       <Route path="/" element={ <BillDashboard/>}/>
+       </Routes>
+      
     </div>
   );
+  //  <Route path="/"  exact />
 }
 
 export default App;
